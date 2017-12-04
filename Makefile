@@ -6,7 +6,7 @@
 #    By: rliu <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/21 11:27:07 by rliu              #+#    #+#              #
-#    Updated: 2017/10/04 21:14:29 by rliu             ###   ########.fr        #
+#    Updated: 2017/12/01 17:44:18 by rliu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,13 +87,16 @@ OBJ = ${SRC:c=o}
 all: $(NAME)
 
 $(NAME):
-	gcc $(FLAGS) $(HEADER) $(SRC)
-	ar rcs $(NAME) $(OBJ)
+	@gcc $(FLAGS) $(HEADER) $(SRC)
+	@ar rcs $(NAME) $(OBJ)
+	@echo "\033[32mCompiled Executable\033[0m"
 
 clean:
-	/bin/rm -f $(OBJ)
+	@/bin/rm -f $(OBJ)
+	@echo "\033[32mRemoved Object Files\033[0m"
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
+	@echo "\033[32mRemoved Executable\033[0m"
 
 re: fclean all
